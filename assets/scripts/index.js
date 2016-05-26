@@ -38,9 +38,18 @@ const onDeleteBook = function (event) {
     .fail(ui.onError);
 };
 
+const onUpdateBook = function (event) {
+  event.preventDefault();
+  libraryApi.update(event.target)
+  .done(ui.onUpdate)
+  .fail(ui.onError);
+
+};
+
 // On document ready
 $(() => {
   $('#book-request').on('submit', onGetBooks);
   $('#book-create').on('submit', onCreateBook);
   $('#book-delete').on('submit', onDeleteBook);
+  $('#book-update').on('submit', onUpdateBook);
 });
